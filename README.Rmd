@@ -17,7 +17,7 @@ To install the package directly from GitHub, use the following command:
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
-devtools::install_github("AU-R-Programming/Final_Project_Group_7")
+devtools::install_github("egubens/TrainPredict")
 ```
 
 ## Getting Started

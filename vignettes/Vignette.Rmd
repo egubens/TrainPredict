@@ -7,11 +7,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-Repository: [Final_Project_Group_7](https://github.com/AU-R-Programming/Final_Project_Group_7.git)
+Repository: [TrainPredict R Package](https://github.com/egubens/TrainPredict)
 
-Package Website: [TrainPredict Package](https://au-r-programming.github.io/Final_Project_Group_7/index.html)
-
-Shiny App Code: [Shiny App](https://github.com/AU-R-Programming/Final_Project_Group_7/blob/main/app/app.R) 
+Package Website: [TrainPredict](https://egubens.github.io/TrainPredict/)
 
 ## Introduction
 
@@ -30,7 +28,7 @@ To install this package you have to use the function `install_github`, the organ
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
-devtools::install_github("AU-R-Programming/Final_Project_Group_7")
+devtools::install_github("egubens/TrainPredict")
 ```
 
 ## Load the Package
