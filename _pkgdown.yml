@@ -1,0 +1,17 @@
+home:
+  title: "Welcome to TrainPredict"
+  contents:
+    - README.md
+template:
+  params:
+    bootswatch: flatly
+navbar:
+  left:
+  - text: Vignette
+    href: articles/Vignette.html
+  - text: Reference
+    href: reference/index.html
+  right:
+  - icon: fa-github
+    href: https://github.com/AU-R-Programming/Final_Project_Group_7.git
+

@@ -1,0 +1,119 @@
+---
+title: "`TrainPredict` Package"
+output: github_document
+---
+
+
+## Overview
+
+`TrainPredict` is an R package designed to streamline the process of logistic regression modeling for binary classification tasks. With functions for splitting data, training models, making predictions, and assessing model performance.
+
+## Installation
+
+To install the package directly from GitHub, use the following command:
+
+```{r, eval=F}
+# Install from GitHub using devtools
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
+devtools::install_github("AU-R-Programming/Final_Project_Group_7")
+```
+
+## Getting Started
+
+Once installed, load the `TrainPredict` package to start using its functionality:
+
+```{r}
+library(TrainPredict)
+```
+
+## Example Workflow
+
+Here is a step-by-step workflow that demonstrates the main functions of the `TrainPredict` package using the built-in `mtcars` dataset.
+
+
+### 1. Split Dataset into Training and Test Sets
+
+The `train_test_sampling()` function is used to split the dataset into training and test sets. Here, we use an 75-25 split.
+
+```{r}
+# Split the dataset into training and test sets (75-25 split).
+# We will use variable `am` as the dependent binary variable. 
+data("mtcars")
+split_data <- train_test_sampling(mtcars, dependent_var = "am", train_prop = 0.75, return_data = TRUE, seed = 123)
+
+# Extract training and test sets.
+train_data <- split_data$train
+head(train_data)
+
+test_data <- split_data$test
+head(test_data)
+
+dim(mtcars)
+dim(train_data)
+dim(test_data)
+```
+
+### 2. Train a Logistic Regression Model
+
+We use the `lr()` function to train a logistic regression model using selected predictors.
+
+```{r}
+# Train a logistic regression model using 'hp', 'mpg', and 'wt' as predictors of the 'am' binary variable.
+model <- lr(am ~ hp + mpg + wt, data = train_data, B=100, alpha=0.05)
+
+# Display model coefficients.
+print(model$beta_optimized)
+
+# Display confusion matrix.
+print(model$confusion_matrix)
+```
+
+### 3. Make Predictions on Test Data
+
+Evaluate the model's performance on the test dataset using the `predict_test()` function.
+
+```{r}
+# Make predictions on the test dataset
+test_predictions <- predict_test(model = model, new_data = test_data, dependent_variable_col = "am")
+
+# Display predictions
+(test_predictions)
+```
+
+### 4. Make Predictions on New Data
+
+Use the `predict_new()` function to make predictions for new data points.
+
+```{r}
+# Create new data points for prediction
+new_data <- data.frame(hp = c(225, 110),
+                       mpg = c(15.9, 25.6),
+                       wt = c(3.485, 1.985))
+
+# Predict using the trained model
+new_predictions <- predict_new(data = new_data, model = model, threshold = 0.5)
+
+# Display predictions
+print(new_predictions)
+```
+
+## Key Functions
+
+- `train_test_sampling()`: Split your dataset into training and test sets.
+- `lr()`: Train a logistic regression model.
+- `predict_test()`: Make predictions on the test dataset.
+- `predict_new()`: Make predictions on new data using a model trained with `lr()`.
+
+## Conclusion
+
+The `TrainPredict` package makes logistic regression modeling easy and efficient by providing key functionalities for data splitting, model training, and prediction. Whether you are a beginner in machine learning or an experienced data scientist, `TrainPredict` can help you simplify the modeling workflow.
+
+## Get Involved
+
+If you'd like to contribute or report any issues, please visit the GitHub repository:
+
+[TrainPredict on GitHub](https://github.com/AU-R-Programming/Final_Project_Group_7)
+
+

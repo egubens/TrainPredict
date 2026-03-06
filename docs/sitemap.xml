@@ -1,0 +1,15 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/TrainPredict.html</loc></url>
+<url><loc>/articles/Vignette.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/lr.html</loc></url>
+<url><loc>/reference/predict_new.html</loc></url>
+<url><loc>/reference/predict_test.html</loc></url>
+<url><loc>/reference/train_test_sampling.html</loc></url>
+<url><loc>/TrainPredict.html</loc></url>
+</urlset>
+
