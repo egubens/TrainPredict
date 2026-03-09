@@ -76,11 +76,9 @@
 
     
     
-<p>Repository: <a href="https://github.com/AU-R-Programming/Final_Project_Group_7.git" class="external-link">Final_Project_Group_7</a></p>
-<p>Package Website: <a href="https://au-r-programming.github.io/Final_Project_Group_7/index.html" class="external-link">TrainPredict
+<p>Repository: <a href="https://github.com/egubens/TrainPredict" class="external-link">TrainPredict R
 Package</a></p>
-<p>Shiny App Code: <a href="https://github.com/AU-R-Programming/Final_Project_Group_7/blob/main/app/app.R" class="external-link">Shiny
-App</a></p>
+<p>Package Website: <a href="https://egubens.github.io/TrainPredict/" class="external-link">TrainPredict</a></p>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -113,7 +111,7 @@ trained with function <code>lr</code>.</li>
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"devtools"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"AU-R-Programming/Final_Project_Group_7"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"egubens/TrainPredict"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="load-the-package">Load the Package<a class="anchor" aria-label="anchor" href="#load-the-package"></a>
@@ -207,11 +205,11 @@ proportions.</p></li>
 <p>The <code>lr</code> function trains a logistic regression model using
 numerical optimization. The goal is to find the coefficient vector
 <code>β</code> that minimizes the negative log-likelihood function:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>β</mi><mo accent="true">̂</mo></mover><mo>:=</mo><mo>arg</mo><munder><mo>min</mo><mi>β</mi></munder><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><mo>⋅</mo><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>β</mi><mo accent="true">̂</mo></mover><mo>:=</mo><mo>arg</mo><munder><mo>min</mo><mi>β</mi></munder><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msub><mi>y</mi><mi>i</mi></msub><mo>⋅</mo><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \hat{\beta} := \arg\min_\beta \sum_{i=1}^n (-y_i \cdot \ln(p_i) - (1 - y_i) \cdot \ln(1 - p_i)),
 </annotation></semantics></math></p>
 <p>where</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo>:=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><msubsup><mi>x</mi><mi>i</mi><mi>T</mi></msubsup><mi>β</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub><mo>:=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msubsup><mi>x</mi><mi>i</mi><mi>T</mi></msubsup><mi>β</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
 p_i := \frac{1}{1 + \exp(-x_i^T \beta)},
 </annotation></semantics></math></p>
 <p>and
@@ -223,7 +221,7 @@ represent the
 observation of the response and predictors, respectively.</p>
 <p>The optimization starts with initial values for <code>β</code>
 obtained from the least-squares formula:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mi>T</mi></msup><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><msup><mi>X</mi><mi>T</mi></msup><mi>y</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mi>T</mi></msup><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mi>X</mi><mi>T</mi></msup><mi>y</mi></mrow><annotation encoding="application/x-tex">
 \beta_0 = (X^T X)^{-1} X^T y
 </annotation></semantics></math></p>
 <p>The <code>lr</code> function uses numerical optimization
@@ -362,15 +360,10 @@ this project.</p>
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <ul>
-<li><p>Beckman, M., Guerrier, S., Lee, J., Molinari, R., Orso, S., &amp;
+<li>Beckman, M., Guerrier, S., Lee, J., Molinari, R., Orso, S., &amp;
 Rudnytskyi, I. (2020). <em>An Introduction to Statistical Programming
-Methods with R</em>. Retrieved from <a href="https://smac-group.github.io/ds/" class="external-link uri">https://smac-group.github.io/ds/</a></p></li>
-<li><p>OpenAI. <em>Predict Outcome Function - ChatGPT Output</em>.
-Available at: <a href="https://chatgpt.com/share/675212cd-f6bc-800d-9c79-9dc9a6946ef9" class="external-link uri">https://chatgpt.com/share/675212cd-f6bc-800d-9c79-9dc9a6946ef9</a>.
-Accessed: 2024-12-05.</p></li>
-<li><p>OpenAI. <em>Logistic Regression with Bootstrapping - ChatGPT
-Output</em>. Available at: <a href="https://chatgpt.com/share/675212cd-f6bc-800d-9c79-9dc9a6946ef9" class="external-link uri">https://chatgpt.com/share/675212cd-f6bc-800d-9c79-9dc9a6946ef9</a>.
-Accessed: 2024-12-01.</p></li>
+Methods with R</em>. Retrieved from <a href="https://smac-group.github.io/ds/" class="external-link uri">https://smac-group.github.io/ds/</a>
+</li>
 </ul>
 </div>
   </div>
@@ -390,7 +383,7 @@ Accessed: 2024-12-01.</p></li>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
       </footer>
